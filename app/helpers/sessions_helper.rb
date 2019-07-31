@@ -24,4 +24,8 @@ module SessionsHelper
         session.delete[:user_id]
         @current_user = nil
     end
+
+    def logged_in?
+        !current_user.nil?
+      end 
 end

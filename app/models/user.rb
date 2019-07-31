@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-    attr_accessor :activation_token
-    before_save { self.email = email.downcase }
-    before_create :create_activation_digest
+   attr_accessor :activation_token, :remember_token
+   # before_save  email = email, only: [:create]
+   before_save { self.email = email.downcase }
+   before_create :create_activation_digest
 
 
 
@@ -14,7 +15,7 @@ class User < ApplicationRecord
     # validates :password_confirmation , presence: true
 
     def remember 
-        self.remember_token = User.token.def new
+        self.remember_token = User.new_token
         update_attribute(:remember_digest , User.digest(remember_token)) 
     end 
 

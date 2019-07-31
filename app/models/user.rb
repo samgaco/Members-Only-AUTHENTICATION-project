@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    attr_accessor :activation_token
     before_save { self.email = email.downcase }
     before_create :create_activation_digest
 
@@ -20,15 +21,18 @@ class User < ApplicationRecord
 
     def create_activation_digest
         self.activation_token  = User.new_token
-        self.activation_digest = User.digest(activation_token)
+        self.remember_digest = User.digest(activation_token)
     end
 
-    def self.digest(string)
+    def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)     
     end 
     
-    def self.new_token
+    def User.new_token
         SecureRandom.urlsafe_base64
     end 
+    def forget
+        update_attribute(:remember_digest, nil)
+    end  
 end

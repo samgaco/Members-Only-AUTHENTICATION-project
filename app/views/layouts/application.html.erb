@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <% if log_in %>
+     <span>click <%= link_to "sign out" , method: :delete ,root_path %> on this link to log out</span>
+    <% else%>
+    <span>click <%= link_to "sign in" , new_sessions_path %> on this link to log in</span>
+    <% end %>
     <%= yield %>
   </body>
 </html>

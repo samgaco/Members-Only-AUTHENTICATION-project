@@ -10,11 +10,17 @@
   </head>
 
   <body>
+    <% flash.each do |message_type,message| %>
+    <div class="alert alert-<%=message_type%>"><%=message%></div>
+    <%end%>
+
     <% if logged_in? %>
      <span>click <%= link_to "sign out" , method: :delete  %> on this link to log out</span>
     <% else%>
     <span>click <%= link_to "sign in" , sessions_new_path %> on this link to log in</span>
     <% end %>
+   
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

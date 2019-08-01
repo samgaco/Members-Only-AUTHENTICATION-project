@@ -11,6 +11,15 @@ class PostsController < ApplicationController
   end
 
   def create 
+    @post = Post.new(post_params)
+   # @post.save 
+    if @post.save
+       flash[:success] = "Your post has been created"
+       redirect_to posts_new_path
+    else  
+       flash[:warning] = "Something went wrong with your post!"
+    end 
+
   end 
 
   private
@@ -19,5 +28,9 @@ class PostsController < ApplicationController
       flash[:error] = "You must be logged in to access this section"
       redirect_to root_url # halts request cycle
       end 
+  end 
+
+  def post_params 
+    params.require(:post).permit(:title, :content, :author)
   end 
 end

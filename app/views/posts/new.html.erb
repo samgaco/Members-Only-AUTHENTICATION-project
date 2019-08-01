@@ -1,4 +1,4 @@
-<%= form_for (@posts, url:  posts_new_path) do |f| %>
+<%= form_for(@post, url:  posts_new_path) do |f| %>
 
 <%= f.label :title, "Title" %> <br>
 <%= f.text_field :title %> <br>
@@ -6,8 +6,7 @@
 <%= f.label :content, "Content" %> <br>
 <%= f.text_area :content %> <br>
 
-<%= f.label :author, "Author" %> <br>
-<%= f.text_field :author %> <br>
+<%= f.hidden_field :User_id, @current_user.user_id %>
 
 
 <%= f.submit %> <br>

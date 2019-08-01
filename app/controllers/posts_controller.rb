@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create 
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(user_id: @current_user.id))
    # @post.save 
     if @post.save
        flash[:success] = "Your post has been created"

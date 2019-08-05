@@ -1,8 +1,35 @@
+<div class="all-post text-center">
 
-<% @posts.each do |c| %>
- <h3><%= c.title %></h3>
- <p><%= c.content %><p>
- <% if logged_in? %>
-  <strong><%= User.find(c.user_id).name %> </strong>
-  <% end %>
-<% end %>
+  <h1> All Posts</h1>
+</div>
+
+
+<% @posts.each_slice(2) do |c| %>
+
+<div class="main d-flex justify-content-center">
+
+ <div class="box-post justify-content-left backbox">
+
+  <h3><%= c[0].title %></h3>
+  <p><%= c[0].content %><p>
+  <% if logged_in? %>
+   <strong><%= User.find(c[0].user_id).name %> </strong>
+   <% end %>
+
+ </div>  
+
+
+ <div class="box-post justify-content-left backbox">
+<% if !c[1].nil? %> 
+    <h3><%= c[1].title %></h3>
+    <p><%= c[1].content %><p>
+    <% if logged_in?  %>
+     <strong><%= User.find(c[1].user_id ).name %> </strong>
+     <% end %>
+  
+   </div>  
+   <%end%>
+  </div>
+
+ <% end %>
+

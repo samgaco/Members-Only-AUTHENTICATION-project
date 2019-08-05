@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :sign_in, only: [:new, :create]
 
 
@@ -8,12 +7,10 @@ class PostsController < ApplicationController
   end
 
   def index
-    
     @posts = Post.order(created_at: :desc)
   end
 
   def create 
-    #@post = Post.new(post_params.merge(user_id: @current_user.id))
     @post = current_user.posts.build(post_params)
     if @post.save
        flash[:success] = "Your post has been created"

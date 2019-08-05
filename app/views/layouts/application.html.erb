@@ -17,10 +17,20 @@
     <% if logged_in? %>
      <span>click <%= link_to "log out" ,logout_path,  method: :delete  %> on this link to log out</span>
     <% else%>
-    <span>click <%= link_to "sign in" , sessions_new_path %> on this link to log in</span>
+    <span>click <%= link_to "sign in" , sessions_new_path %> on this link to sign in</span> <br>
+    <span>click <%= link_to "sign up" , users_new_path %> on this link to sign up</span>
+
     <% end %>
    
-    <%= yield %>
+    <%= yield %> <br>
+
+    <% if logged_in? %>
+    <span>click <%= link_to "create post" , posts_new_path %> on this link to create a new post</span> <br>
+   <% end%>
+   <span>click <%= link_to "index" , posts_index_path %> on this link to see the posts</span> <br>
+
+
+
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

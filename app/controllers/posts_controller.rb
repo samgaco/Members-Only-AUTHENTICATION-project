@@ -13,8 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create 
-    @post = Post.new(post_params.merge(user_id: @current_user.id))
-
+    #@post = Post.new(post_params.merge(user_id: @current_user.id))
+    @post = current_user.posts.build(post_params)
     if @post.save
        flash[:success] = "Your post has been created"
        redirect_to posts_new_path

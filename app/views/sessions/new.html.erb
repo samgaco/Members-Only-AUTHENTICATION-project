@@ -17,7 +17,8 @@
       <%= f.check_box :remember %>
       <span>Remember me on this computer</span>
       <% end %><br>
-      <%= f.submit  "LOG IN" %>
+      <%= f.submit  "LOG IN" %><br>
+      <span>not yet a member ?<%= link_to "sign up" , users_new_path %></span>
 
       <% end %>
     </div>

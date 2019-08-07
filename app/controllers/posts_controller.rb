@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :sign_in, only: [:new, :create]
 
 

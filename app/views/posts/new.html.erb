@@ -1,15 +1,27 @@
-<%= form_for(@post, url:  posts_new_path) do |f| %>
+<%= provide(:title,'upload content') %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
 
-<%= f.label :title, "Title" %> <br>
-<%= f.text_field :title %> <br>
+        <div class="col-sm-4 login-wrap">
+            <h2>Create Article</h2>
+            <%= form_for(@post, url:  posts_new_path) do |f| %>
 
-<%= f.label :content, "Content" %> <br>
-<%= f.text_area :content %> <br>
+            <%= f.label :title, "Title" %> <br>
+            <%= f.text_field :title , class: "form-control" %> <br>
 
-<%= f.hidden_field :user_id %>
+            <%= f.label :content, "Content" %> <br>
+            <%= f.text_area :content , class: "form-control" %> <br>
+
+            <%= f.hidden_field :user_id %>
 
 
-<%= f.submit %> <br>
+            <%= f.submit %> <br>
 
 
-<% end %>
+            <% end %>
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+</div>

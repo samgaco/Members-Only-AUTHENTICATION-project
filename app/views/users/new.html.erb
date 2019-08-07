@@ -1,2 +1,29 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= provide(:title,'login') %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4 login-wrap">
+            <h2>sign up</h2>
+            
+            <%= form_for(@user , url: users_path) do |f| %>
+
+            <%= f.label :name, "name" %> <br>
+            <%= f.text_field :name , class: "form-control" %> <br>
+            <%= f.label :email, "email" %> <br>
+            <%= f.email_field :email , class: "form-control" %> <br>
+
+            <%= f.label :password, "password" %> <br>
+            <%= f.password_field :password , class: "form-control"  %> <br>
+
+
+            <%= f.label :password, "confirmation" %> <br>
+            <%= f.password_field :password_confirmation , class: "form-control"  %> <br>
+            <%= f.submit  "SIGN UP" %><br>
+            <span>already a member? <%= link_to "login" , sessions_new_path %></span>
+            <% end %>
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+</div>

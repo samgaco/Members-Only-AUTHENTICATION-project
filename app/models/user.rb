@@ -12,8 +12,8 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: { case_sensitive: false}, 
     format: { with: VALID_EMAIL_REGEX }
     has_secure_password
-    # validates :password , presence: true
-    # validates :password_confirmation , presence: true
+    validates :password , presence: true
+    validates :password_confirmation , presence: true
 
     def remember 
         self.remember_token = User.new_token

@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -8,15 +9,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Your account has been created"
+      flash[:success] = 'Your account has been created'
       redirect_to root_path
-    else  
-      flash[:warning] = "Something went wrong!"
+    else
+      flash[:warning] = 'Something went wrong!'
       redirect_to root_path
-    end 
-  end 
+    end
+  end
 
-  private 
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :password,

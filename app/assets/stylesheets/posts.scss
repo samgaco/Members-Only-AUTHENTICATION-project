@@ -1,0 +1,35 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h3{
+    color: rgb(60, 83, 211);
+}
+.all-post{
+    margin-top: 5%;
+    color: rgb(60, 83, 211);
+}
+
+.box-post{
+    width: 50%;
+    float: left;
+    margin-top: 60px;
+    padding: 4%;
+    border-radius: 1px solid silver;
+    border: rgb(97, 97, 247) 2px solid; 
+
+    border-radius: 2px;
+    margin: 2%;
+}
+
+
+.backbox{
+
+        background-image: linear-gradient( rgb(223, 222, 222), rgb(143, 182, 255));
+    opacity: 0.9;
+}
+
+.main{
+
+    width: 100%;
+}

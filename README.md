@@ -1,24 +1,56 @@
-# README
+# Members only!
+We worked on authentication to create a small application in which users can log-in and create posts, being allowed only the users that are logged in to see the authors of the posts.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
 
-Things you may want to cover:
+To get started with the app, clone the repo and then install the needed gems:
 
-* Ruby version
+```
+$ bundle install --without production
+```
 
-* System dependencies
+Next, migrate the database:
 
-* Configuration
+```
+$ rails db:migrate
+```
 
-* Database creation
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* Database initialization
+```
+$ rails server
+```
 
-* How to run the test suite
+Once it's up and running you can see the working implementations in:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+http://localhost:3000/
+```
 
-* Deployment instructions
+You will need to create your own users from the rails console
 
-* ...
+```
+rails console 
+```
+
+```
+> u = User.new
+
+```
+You will need to add the name, email, password and password confirmation attributes.
+
+```
+User.save
+```
+
+Once you are logged in you can create posts from:
+
+```
+http://localhost:3000/posts/new
+```
+
+And see the created posts in 
+
+```
+http://localhost:3000/posts/index
+```

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MembersOnly</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title><%= yield(:title)%>| memebers-only</title>
+  <%= render "partials/header" %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <%= render "partials/navigation" %>
+  <%= render "partials/flash" %>
+
+  <%= yield %>
+
+</body>
+
 </html>

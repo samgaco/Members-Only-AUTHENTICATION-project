@@ -7,11 +7,11 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link active" href="<%= root_path%>">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="<%= posts_index_path %> ">posts</a>
+            <a class="nav-item nav-link" href="<%= posts_path %> ">posts</a>
             <% if logged_in? %>
             <!-- <%= link_to "logout", 'logout_path', {:style=>'color:#FFFFFF;', :class => "css_class"} %> -->
             <%=  link_to "log out" ,logout_path,  method: :delete  %>
-            <a class="nav-item nav-link active" href="<%= posts_new_path%>">Create post <span
+            <a class="nav-item nav-link active" href="<%= new_post_path %>">Create post <span
                     class="sr-only">(current)</span></a>
             <% else %>
             <a class="nav-item nav-link" href="<%= sessions_new_path %>">login</a>
